@@ -1,15 +1,18 @@
 /**
  @header UIHelper.m
  @author Fabrizio Caldarelli
- @version 1
+ @version 2
  */
 #import "UIHelper.h"
 
 @implementation UIHelper
 
-#define LS(str) NSLocalizedString(str, str)
-#define K_UIHELPER_WAITER_DEFAULT_MESSAGE LS(@"Loading")
+#define K_UIHELPER_WAITER_DEFAULT_MESSAGE LS(@"Caricamento in corso")
 #define K_UIHELPER_ALERT_OK_LABEL LS(@"OK")
+#define K_UIHELPER_ALERT_YES_LABEL LS(@"Si")
+#define K_UIHELPER_ALERT_NO_LABEL LS(@"No")
+#define LS(str) NSLocalizedString(str, str)
+
 
 #pragma mark Loader
 +(UIView*)showWaiterInController:(UIViewController*)vcInput message:(NSString*)message
@@ -53,6 +56,27 @@
     }]];
     [presenterController presentViewController:ac animated:YES completion:nil];
 }
+
+#pragma mark - Alert Yes No
++ (void)showAlertYesNo:(UIViewController*)presenterController title:(NSString*)title message:(NSString*)message resultCallback:(void (^)(BOOL))resultCallback
+{
+    UIAlertController *ac = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+    [ac addAction:[UIAlertAction actionWithTitle:K_UIHELPER_ALERT_YES_LABEL style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        if(resultCallback!=nil)
+        {
+            resultCallback(YES);
+        }
+    }]];
+    [ac addAction:[UIAlertAction actionWithTitle:K_UIHELPER_ALERT_NO_LABEL style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        if(resultCallback!=nil)
+        {
+            resultCallback(NO);
+        }
+    }]];
+    [presenterController presentViewController:ac animated:YES completion:nil];
+    
+}
+
 
 #pragma mark Color
 + (UIColor *)colorWithHexString:(NSString *)hexWithAlphaString {
