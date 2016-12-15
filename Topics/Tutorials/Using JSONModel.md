@@ -45,7 +45,7 @@ JSONModel call (if they exist) custom selectors of **getter and setter** based o
 
 ```objc
 // Getter
-- (NSDictionary*)JSONObjectFor<field_name>;
+- (NSArray*)JSONObjectFor<field_name>;
 
 // Setter
 - (void)set<field_name>WithNSArray:(NSArray*)arrayOfDictionaries;
@@ -55,7 +55,7 @@ In the example, the User model contains an array of Purchase objects, so in the 
 
 ```objc
 // Getter
-- (NSDictionary*)JSONObjectForPurchases
+- (NSArray*)JSONObjectForPurchases
 {
     NSArray *arrayOfDictionaries = [Purchase arrayOfDictionariesFromModels:self.purchases];
     return arrayOfDictionaries;
