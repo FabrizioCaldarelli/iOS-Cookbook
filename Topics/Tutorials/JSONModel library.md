@@ -1,4 +1,4 @@
-# Using JSONModel
+# JSONModel library
 
 JSONModel is one of the my favourites data modeling framework for JSON available for iOS.
 
