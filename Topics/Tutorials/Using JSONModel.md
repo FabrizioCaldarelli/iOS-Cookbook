@@ -18,7 +18,7 @@ It is enough extends model classes from JSONModel class:
 @end
 ```
 
-## Field as array of models
+## Model collections
 
 ```objc
 #import "JSONModel.h"
@@ -66,5 +66,17 @@ In the example, the User model contains an array of Purchase objects, so in the 
 {
     NSError *error = nil;
     self.purchases = [Purchase arrayOfModelsFromDictionaries:arrayOfDictionaries error:&error];
+}
+```
+
+## Optional fields
+
+JSONModel support inline declaration of optional fields (or fields that can be null) using Optional inside type definition, but I prefer to use 'propertyIsOptional' methods, to extend inside model class:
+
+```objc
++(BOOL)propertyIsOptional:(NSString*)propertyName
+{
+    if ([propertyName isEqualToString: @"field_name"]) return YES;
+    return NO;
 }
 ```
