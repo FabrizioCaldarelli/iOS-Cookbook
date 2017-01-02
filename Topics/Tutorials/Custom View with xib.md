@@ -14,7 +14,7 @@ We have three files:
 
 **CustomView.xib**
 ```
-Inside customview.xib put a single UIView object that refers to CustomView class.
+Inside CustomView.xib put a single UIView object that refers to CustomView class.
 ```
 
 **CustomView.h**
