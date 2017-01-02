@@ -94,7 +94,7 @@ Inside CustomView.xib put a single UIView object that refers to CustomView class
 
 ## 3. Change property from xib
 
-To manipulate properties directly from xib, add `IBInspectable` prefix to property definition:
+To manipulate properties directly from xib, add `IB_DESIGNABLE` before `@interface` definition and  `IBInspectable` prefix to property definition:
 
 ```objc
 @property (nonatomic, assign) IBInspectable NSString* backgroundColorResource;
