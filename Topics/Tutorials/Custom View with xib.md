@@ -33,10 +33,10 @@ Inside customview.xib put a single UIView object that refers to CustomView class
 ```objc
 #import "CustomView.h"
 
-@interface RigaTitoloTestoView()
+@interface CustomView()
 
-@property (nonatomic, weak) IBOutlet UILabel *lblTitolo;
-@property (nonatomic, weak) IBOutlet UILabel *lblTesto;
+@property (nonatomic, weak) IBOutlet UILabel *label1;
+@property (nonatomic, weak) IBOutlet UILabel *label2;
 
 @end
 
