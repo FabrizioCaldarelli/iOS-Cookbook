@@ -21,6 +21,7 @@ IB_DESIGNABLE
 **CustomButton.m**
 ```objc
 #import "CustomButton.h"
+#import "UIHelper.h"
 
 @interface CustomButton()
 
